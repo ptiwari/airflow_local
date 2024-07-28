@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  airflow:
+    image: my_airflow_image
+    build: .
+    restart: always
+    volumes:
+      - ./dags:/airflow/dags
+      - ./plugins:/airflow/plugins
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "
+      airflow db init &&
+      airflow users create -r Admin -u admin -p admin -e admin@example.com -f Admin -l User &&
+      airflow scheduler &
+      airflow webserver
+      "

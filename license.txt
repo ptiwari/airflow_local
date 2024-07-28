@@ -1,0 +1,2 @@
+This software is free to use for both commercial and non-commerical use case. 
+It's released under MIT license. Please consult at https://opensource.org/license/mit.
